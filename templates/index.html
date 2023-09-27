@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Générateur de QR Code</title>
+</head>
+<body>
+    <h1>Générateur de QR Code</h1>
+
+    <form action="/" method="post">
+        <label for="data">Entrez vos données:</label>
+        <input type="text" name="data" required>
+        <button type="submit">Générer</button>
+    </form>
+
+    {% if qr_code_filename %}
+        <h2>Votre QR Code:</h2>
+        <img src="{{ url_for('static', filename='qrcodes/' + qr_code_filename) }}" alt="QR Code">
+    {% endif %}
+</body>
+</html>
